@@ -38,11 +38,11 @@ View : string
 
 Example Dictionary:
 
-{'Link': '/watch?v=ZynacUXphI4',
+{'Link': 'https://watch?v=ZynacUXphI4',
 'UploadDate': '3 months ago',
 'Title': 'halsey - bad at love (lyrics)',
 'Verified': False,
-'Duration': '3:10',
+'Duration': '00:03:10',
 'Channel': 'hopeless',
 'View': '202,583'}
 '''
@@ -156,7 +156,7 @@ def getMetaData(soup, noOfRecords):
         
         #To remove advertisement tags
         if len(video.contents) > 1:            
-            s = video.contents[1].span
+            s = video.contents[0].span
             if(s != None):
                 if(s.has_attr('aria-label')):
                     continue
@@ -178,8 +178,8 @@ def getMetaData(soup, noOfRecords):
 
         #String manipulation for time format
         time = durationData.contents[0]
-        time = time.split(' ')[-1]
-        time = time.split('.')[0]
+        time = time.split(' ')[0]
+        time = time.split(' ')[0]
         d['Duration'] = time
 
         #Second child of yt-lockup-content division
