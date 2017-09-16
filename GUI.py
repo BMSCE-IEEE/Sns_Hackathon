@@ -44,6 +44,7 @@ class GUI(Frame):
         """
         This function initiates a new search based on the text entered in the search bar.
         """
+		        self.b1=Button(self, text='Search', command=self.search)
         search_string = self.search_var.get()
         print(search_string)
         self.populate_Similar_Songs(search_string)

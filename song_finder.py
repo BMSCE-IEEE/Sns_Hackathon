@@ -11,7 +11,7 @@ def getArtists(cursor, search):
         #print(row[0])        
         artists.append(row[0])
     
-    return artists
+    return artists;
     
 def compareArtists(artists, search):
     for artist in artists:        
