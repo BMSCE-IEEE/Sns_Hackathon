@@ -20,7 +20,7 @@ def compareArtists(artists, search):
 
 def searchStringLogic(cursor, search_string):
     words = search_string.split(' ')
-    for i in range(len(words) ):
+    for i in range(len(words) + 1):
         artist = '-'.join(words[0:i])
         song = '-'.join(words[i+1:])
         print('Artist', artist)
