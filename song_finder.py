@@ -41,6 +41,7 @@ def getAllSongs(cursor, artist, song):
     rows=cursor.fetchall()    
     for row in rows:        
         print(row[0], row[1])
+        print ""
         songs.append(str(row[0]) + str(row[1]))
     return songs
 
