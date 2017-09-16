@@ -23,9 +23,10 @@ def initiate_Search(search):
         soup = init(base_url)        
         metaData = getMetaData(soup, 10)
         print(metaData)
-
+        
         relevant = getMostRelevant(metaData, searchWord)
         print(relevant)
+        
         return relevant        
 
     except urllib2.HTTPError as e:
@@ -38,6 +39,8 @@ def initiate_Search(search):
     """
     ***************No error section ends******************
     """
+
+
         
 #Function to download the most relevant video.
 def initiate_Download(search, relevant):
@@ -47,10 +50,11 @@ def initiate_Download(search, relevant):
     search: the search text
     relevant: a dictionary containing (key:value) pairs of metadata.
     """
-    youtube_URL = 'https://www.youtube.com'+relevant['Link']
-    ssyoutube_URL = convert_youtubeURL_to_download_URL(youtube_URL)
+    ssyoutube_URL = 'https://www.ssyoutube.com'+relevant['Link']
+    #ssyoutube_URL = convert_youtubeURL_to_download_URL(youtube_URL)
     file_URL = retrieve_File_URL(ssyoutube_URL)
-    download_video(file_URL, search)
+    ext = '.mp4'
+    download_video(file_URL, search + ext)
         
     
 

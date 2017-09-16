@@ -188,7 +188,7 @@ def getMetaData(soup, noOfRecords):
         if(s != None):
             if(s.has_attr('title')):
                 if(s['title'] == 'Verified'):
-                    pass
+                    d['Verified'] = True
 
         #Third child of yt-lockup-content division
         metaDataTags = video.contents[2].ul
@@ -210,11 +210,7 @@ def checkIfVerified(meta):
 #Function that converts Youtube views (a string) to an integer
 #Eg: Youtube views -> 123,456,789 should become 123456789
 def toNumber(string):
-    number = string
-    try:
-        return int(number)
-    except: 
-        return -1
+    return int(string.replace(',', ''))
 
 #Function that filters out the most relevant Youtube video
 def getMostRelevant(metaData, searchWord):

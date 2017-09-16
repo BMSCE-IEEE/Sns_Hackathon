@@ -22,6 +22,7 @@ class GUI(Frame):
         """
         relevant_data: a dictionary containing (key:value) pairs of metadata.
         """
+        print 'POPULATING'
         self.lbox2.delete(0, END)
         print(relevant_data)
         for key in relevant_data.keys():
@@ -36,8 +37,9 @@ class GUI(Frame):
         search: the text entered in the search bar.
         """
         songs = populateSongs(search)
-        self.lbox.delete(0, END)        
-        self.lbox.insert(END, songs)
+        self.lbox.delete(0, END)
+        for song in songs:
+            self.lbox.insert(END, songs)
             
     #Function to initiate a search for the song.
     def search(self):
@@ -47,7 +49,10 @@ class GUI(Frame):
         search_string = self.search_var.get()
         print(search_string)
         self.populate_Similar_Songs(search_string)
-        metadata = initiate_Search(search_string)        
+        metadata = initiate_Search(search_string)
+        print metadata
+        # raw_input('>>>')
+        
         self.populate_Song_Metadata(metadata)
         initiate_Download(search_string, metadata)       
         
@@ -63,6 +68,7 @@ class GUI(Frame):
         value = widget.get(selection[0])        
         self.entry.delete(0, END)
         self.entry.insert(END, value)
+        self.search()
                 
     #Function to setup the basic layout of the Graphical User Interface
     def widgets(self):
@@ -74,7 +80,8 @@ class GUI(Frame):
         Label(self, text="Song Downloader System", background="#CC0001", font= ("Comic Sans MS",16)).grid(row=0, column=0, padx=20)
         self.search_var = StringVar()
         
-        self.entry = Entry(self, textvariable=self.search_var, width=45)                
+        self.entry = Entry(self, textvariable=self.search_var, width=45)
+        self.entry.grid()
         
         self.b1=Button(self, text='Search', command=self.search)
         self.b1.grid(row=1, column=1, sticky=W, padx=20, pady=10)
@@ -84,7 +91,7 @@ class GUI(Frame):
         self.lbox.bind("<Double-Button-1>", self.onDouble)
         
         self.lbox2 = Listbox(self, width=45, height=15)
-        self.lbox2.grid(row=2, column=1, columnspan=6,sticky=W, padx=2000, pady=10)       
+        self.lbox2.grid(row=2, column=1, columnspan=6,sticky=W, padx=20, pady=10)       
          
         
 """
