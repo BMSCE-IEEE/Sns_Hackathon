@@ -188,7 +188,7 @@ def getMetaData(soup, noOfRecords):
         if(s != None):
             if(s.has_attr('title')):
                 if(s['title'] == 'Verified'):
-                    pass
+                    d['Verified'] = True
 
         #Third child of yt-lockup-content division
         metaDataTags = video.contents[2].ul
