@@ -26,7 +26,7 @@ class GUI(Frame):
         self.lbox2.delete(0, END)
         print(relevant_data)
         for key in relevant_data.keys():
-            insert_string = key + ': ' + unicode(relevant_data[key])
+            insert_string = key + ': ' + str(relevant_data[key])
             self.lbox2.insert(END, insert_string)        
     
     #Function to generate a list of similar songs.

@@ -26,7 +26,7 @@ def initiate_Search(search):
         
         relevant = getMostRelevant(metaData, searchWord)
         print(relevant)
-        raw_input('>>')
+        
         return relevant        
 
     except urllib2.HTTPError as e:
