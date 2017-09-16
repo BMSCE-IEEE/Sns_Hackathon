@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import dryscrape
+#import dryscrape
 import requests
 import time
 
@@ -9,8 +9,8 @@ def convert_youtubeURL_to_download_URL(youtube_URL):
 	https://www.ssyoutube.com/XXX contains a link which allows music videos to be downloaded.
 	youtube_URL: the URL of the music video to be downloaded
 	"""
-	index = youtube_URL.find('https')
-	file_retrieve_URL = youtube_URL[0:index] + 'ss' + youtube_URL[index:]
+	#index = youtube_URL.find('https')
+	file_retrieve_URL = youtube_URL
 	redirect_response = requests.get(file_retrieve_URL)
 	print(redirect_response.url)
 	return redirect_response.url
@@ -28,7 +28,9 @@ def retrieve_File_URL(ss_downloaded_URL):
 	sess.visit(ss_downloaded_URL)
 	time.sleep(10)
 	response = sess.body()
-	response = response.encode('ascii', 'ignore')	
+	#r = requests.get(ss_downloaded_URL)
+        #response = r.content
+	response = response.encode('"ascii"', 'ignore')
 	soup = BeautifulSoup(response.decode('ascii', 'ignore'), 'html.parser')	
 	div = soup.find('div', {'class':'def-btn-box'})	
 	print('*************************')	

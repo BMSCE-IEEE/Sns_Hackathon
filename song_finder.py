@@ -42,6 +42,8 @@ def getAllSongs(cursor, artist, song):
     for row in rows:        
         print(row[0], row[1])
         songs.append(str(row[0]) + str(row[1]))
+    print 'Returning'
+    print songs
     return songs
 
 def populateSongs(search):	
