@@ -9,7 +9,7 @@ def convert_youtubeURL_to_download_URL(youtube_URL):
 	https://www.ssyoutube.com/XXX contains a link which allows music videos to be downloaded.
 	youtube_URL: the URL of the music video to be downloaded
 	"""
-	index = youtube_URL.find('https')
+	index = youtube_URL.find('youtube')
 	file_retrieve_URL = youtube_URL[0:index] + 'ss' + youtube_URL[index:]
 	redirect_response = requests.get(file_retrieve_URL)
 	print(redirect_response.url)
@@ -60,6 +60,6 @@ def download_video(url, filename):
 	
 	response = requests.get(url, headers=headers)
 	print(response)
-	file = open(filename, 'wb')
+	file = open(filename, '.mp4')  # in second branch, second commit
 	file.write(response.content)
 	file.close()
