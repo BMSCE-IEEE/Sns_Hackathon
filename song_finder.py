@@ -32,7 +32,7 @@ def searchStringLogic(cursor, search_string):
             print(artist_result)
             return (artist_result, song)
         
-    return (song, artist_result) # test required 
+    return (None, None) # test required 
     
 def getAllSongs(cursor, artist, song):
     songs = []
