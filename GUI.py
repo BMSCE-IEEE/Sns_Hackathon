@@ -63,7 +63,7 @@ class GUI(Frame):
         value = widget.get(selection[0])        
         self.entry.delete(0, END)
         self.entry.insert(END, value)
-        self.search()
+        self.search()  # search button fixed
                 
     #Function to setup the basic layout of the Graphical User Interface
     def widgets(self):
