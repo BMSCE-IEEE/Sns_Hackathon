@@ -60,6 +60,6 @@ def download_video(url, filename):
 	
 	response = requests.get(url, headers=headers)
 	print(response)
-	file = open(filename, 'H264')  # in second branch, second commit(OR XVID BUT DONT KNOW FORMAT)
+	file = open(filename, '.mp4')  # in second branch, second commit
 	file.write(response.content)
 	file.close()
