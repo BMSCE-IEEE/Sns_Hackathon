@@ -63,6 +63,7 @@ class GUI(Frame):
         value = widget.get(selection[0])        
         self.entry.delete(0, END)
         self.entry.insert(END, value)
+        self.search()
                 
     #Function to setup the basic layout of the Graphical User Interface
     def widgets(self):
@@ -74,7 +75,8 @@ class GUI(Frame):
         Label(self, text="Song Downloader System", background="#CC0001", font= ("Comic Sans MS",16)).grid(row=0, column=0, padx=20)
         self.search_var = StringVar()
         
-        self.entry = Entry(self, textvariable=self.search_var, width=45)                
+        self.entry = Entry(self, textvariable=self.search_var, width=45)
+        self.entry.grid(row=1, column=0, sticky=W, padx=20, pady=10)           
         
         self.b1=Button(self, text='Search', command=self.search)
         self.b1.grid(row=1, column=1, sticky=W, padx=20, pady=10)
