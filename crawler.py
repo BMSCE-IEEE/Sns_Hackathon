@@ -214,7 +214,7 @@ def toNumber(string):
     try:
         return int(number)
     except: 
-        return 0
+        return None
 
 #Function that filters out the most relevant Youtube video
 def getMostRelevant(metaData, searchWord):
