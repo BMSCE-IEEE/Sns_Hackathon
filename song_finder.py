@@ -31,6 +31,7 @@ def searchStringLogic(cursor, search_string):
         if artist_result is not None:
             print(artist_result)
             return (artist_result, song)
+            return (song, artist_result)
         
     return (None, None) 
     

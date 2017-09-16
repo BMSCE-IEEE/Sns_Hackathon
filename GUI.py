@@ -22,7 +22,7 @@ class GUI(Frame):
         """
         relevant_data: a dictionary containing (key:value) pairs of metadata.
         """
-        self.lbox2.delete(0, END)
+        
         print(relevant_data)
         for key in relevant_data.keys():
             insert_string = key + ': ' + str(relevant_data[key])
