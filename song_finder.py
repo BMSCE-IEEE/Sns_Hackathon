@@ -36,7 +36,7 @@ def searchStringLogic(cursor, search_string):
     
 def getAllSongs(cursor, artist, song):
     songs = []
-    query = "SELECT song, year FROM lyrics WHERE artist LIKE '%s' AND song NOT LIKE '%s';" %(song, artist)
+    query = "SELECT song, year FROM lyrics WHERE artist LIKE '%s' AND song NOT LIKE '%s';" %(artist, song)
     cursor.execute(query)
     rows=cursor.fetchall()    
     for row in rows:        
