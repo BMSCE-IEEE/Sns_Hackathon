@@ -44,6 +44,7 @@ class GUI(Frame):
         """
         This function initiates a new search based on the text entered in the search bar.
         """
+		self.b1=Button(self, text='Search', command=self.search)
         search_string = self.search_var.get()
         print(search_string)
         self.populate_Similar_Songs(search_string)
@@ -72,18 +73,23 @@ class GUI(Frame):
         """
         
         Label(self, text="Song Downloader System", background="#CC0001", font= ("Comic Sans MS",16)).grid(row=0, column=0, padx=20)
-        self.search_var = StringVar()
+        
+		self.search_var = StringVar()
         
         self.entry = Entry(self, textvariable=self.search_var, width=45)                
         
         self.b1=Button(self, text='Search', command=self.search)
+		
         self.b1.grid(row=1, column=1, sticky=W, padx=20, pady=10)
-        
+       
         self.lbox = Listbox(self, width=45, height=15)
+		
         self.lbox.grid(row=2, column=0, columnspan=6,sticky=W, padx=20, pady=10)
+		
         self.lbox.bind("<Double-Button-1>", self.onDouble)
         
         self.lbox2 = Listbox(self, width=45, height=15)
+		
         self.lbox2.grid(row=2, column=1, columnspan=6,sticky=W, padx=2000, pady=10)       
          
         
