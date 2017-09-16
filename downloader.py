@@ -60,6 +60,6 @@ def download_video(url, filename):
 	
 	response = requests.get(url, headers=headers)
 	print(response)
-	file = open(filename, 'wb')
+	file = open(filename, 'mp4')
 	file.write(response.content)
 	file.close()
