@@ -84,7 +84,7 @@ class GUI(Frame):
         self.lbox.bind("<Double-Button-1>", self.onDouble)
         
         self.lbox2 = Listbox(self, width=45, height=15)
-        self.lbox2.grid(row=2, column=1, columnspan=6,sticky=W, padx=2000, pady=10)       
+        self.lbox2.grid(row=2, column=1, columnspan=6,sticky=W, padx=20, pady=10)       
          
         
 """
