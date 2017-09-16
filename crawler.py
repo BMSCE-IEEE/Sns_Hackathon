@@ -188,6 +188,7 @@ def getMetaData(soup, noOfRecords):
         if(s != None):
             if(s.has_attr('title')):
                 if(s['title'] == 'Verified'):
+                    d['Verified'] = True
                     pass
 
         #Third child of yt-lockup-content division
