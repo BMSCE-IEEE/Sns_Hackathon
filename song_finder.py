@@ -22,15 +22,21 @@ def searchStringLogic(cursor, search_string):
     words = search_string.split(' ')
     for i in range(len(words) - 1):
         artist = '-'.join(words[0:i])
-        song = '-'.join(words[i+1:])
-        print('Artist', artist)
-        print('Song', song)
-        
-        artists = getArtists(cursor, song)        
         artist_result = compareArtists(artists, artist)
         if artist_result is not None:
             print(artist_result)
-            return (artist_result, song)
+            song = '-'.join(words[i+1:])
+            
+        else:
+            artist = '-'.join(words[i+1:(len(words)-1)])
+            artist_result = compareArtists(artists, artist)
+            print(artist_result)
+            song = '-'.join(words[0:i])
+            
+    print('Artist', artist)
+    print('Song', song)           
+    return (artist_result, song)    
+
         
     return (None, None) 
     
